@@ -230,7 +230,7 @@ class ProductController extends Controller
         $productBatch = ProductBatch::create([
             'product_id' => $product->id,
             'batch_number' => $request->batch_number ?: 'DEFAULT',
-            'expiry_date' => Carbon::parse($request->expiry_date)->format('Y-m-d'),
+            'expiry_date' => Carbon::createFromFormat('d/m/Y', $request->expiry_date)->format('Y-m-d'),
             'cost' => $request->cost,
             'price' => $request->price,
             'contact_id' => $request->contact_id,
